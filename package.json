@@ -1,0 +1,46 @@
+{
+  "name": "@pinsharing/mcp",
+  "version": "1.0.0",
+  "description": "A public stdio bridge for the hosted PinSharing MCP server",
+  "type": "module",
+  "bin": {
+    "pinsharing-mcp": "bin/pinsharing-mcp.js"
+  },
+  "main": "src/bridge.js",
+  "exports": {
+    ".": "./src/bridge.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "author": "Wells Software Consulting LLC",
+  "homepage": "https://pinsharing.com/docs/mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Software-Consulting/pinsharing-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Software-Consulting/pinsharing-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "maps",
+    "geocoding",
+    "static-maps",
+    "openstreetmap",
+    "privacy",
+    "pinsharing"
+  ],
+  "mcpName": "com.pinsharing/maps"
+}
