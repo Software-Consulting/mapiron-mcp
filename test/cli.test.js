@@ -8,16 +8,21 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
-const bin = path.join(root, 'bin', 'pinsharing-mcp.js');
+const bin = path.join(root, 'bin', 'mapiron-mcp.js');
 
 function spawnBin(args = [], env = {}) {
   return spawn(process.execPath, [bin, ...args], {
     cwd: root,
     env: {
       ...process.env,
+      MAPIRON_API_KEY: '',
+      MAPIRON_MCP_URL: '',
+      MAPIRON_MCP_DEBUG: '',
+      MAPIRON_MCP_TIMEOUT_MS: '60000',
       PINSHARING_API_KEY: '',
+      PINSHARING_MCP_URL: '',
       PINSHARING_MCP_DEBUG: '',
-      PINSHARING_MCP_TIMEOUT_MS: '60000',
+      PINSHARING_MCP_TIMEOUT_MS: '',
       ...env,
     },
     stdio: ['pipe', 'pipe', 'pipe'],
@@ -47,13 +52,13 @@ test('--version prints package version', async () => {
   const [code] = await once(child, 'close');
 
   assert.equal(code, 0);
-  assert.equal(getStdout().trim(), '1.0.0');
+  assert.equal(getStdout().trim(), '1.1.0');
   assert.equal(getStderr(), '');
 });
 
 test('non-https non-localhost URL exits 1 with a clear stderr message', async () => {
   const child = spawnBin([], {
-    PINSHARING_MCP_URL: 'http://example.com/v1/mcp',
+    MAPIRON_MCP_URL: 'http://example.com/v1/mcp',
   });
   const { getStdout, getStderr } = collect(child);
   const [code] = await once(child, 'close');
@@ -95,7 +100,7 @@ test('end-to-end stdio run against a local mock server', async () => {
   const port = server.address().port;
 
   const child = spawnBin([], {
-    PINSHARING_MCP_URL: `http://127.0.0.1:${port}/v1/mcp`,
+    MAPIRON_MCP_URL: `http://127.0.0.1:${port}/v1/mcp`,
   });
   const { getStdout, getStderr } = collect(child);
 

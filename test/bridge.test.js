@@ -168,7 +168,7 @@ test('server 500 text body emits JSON-RPC error with same string id', async () =
     {
       jsonrpc: '2.0',
       id: 'abc',
-      error: { code: -32603, message: 'PinSharing returned HTTP 500' },
+      error: { code: -32603, message: 'MapIron returned HTTP 500' },
     },
   ]);
 });
@@ -290,7 +290,7 @@ test('timeout writes -32603 with same id', async () => {
       id: 'timeout-id',
       error: {
         code: -32603,
-        message: 'Could not reach PinSharing: timed out after 200 ms',
+        message: 'Could not reach MapIron: timed out after 200 ms',
       },
     },
   ]);

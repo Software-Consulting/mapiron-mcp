@@ -110,9 +110,9 @@ export function createBridge({
     const parsed = parseJson(body);
     if (parsed === undefined) {
       if (hasId(request)) {
-        writeError(output, request.id, -32603, 'Invalid response from PinSharing');
+        writeError(output, request.id, -32603, 'Invalid response from MapIron');
       } else {
-        safeLog('Ignored invalid JSON response from PinSharing');
+        safeLog('Ignored invalid JSON response from MapIron');
       }
       return;
     }
@@ -131,7 +131,7 @@ export function createBridge({
       if (parsed !== undefined) {
         handleParsed(request, parsed);
       } else if (hasId(request)) {
-        writeError(output, request.id, -32603, 'Invalid response from PinSharing');
+        writeError(output, request.id, -32603, 'Invalid response from MapIron');
       } else {
         safeLog(`Ignored response with content-type ${type}`);
       }
@@ -142,7 +142,7 @@ export function createBridge({
     const headers = {
       'content-type': 'application/json',
       'accept': 'application/json, text/event-stream',
-      'user-agent': `pinsharing-mcp/${version}`,
+      'user-agent': `mapiron-mcp/${version}`,
     };
     if (apiKey) headers.authorization = `Bearer ${apiKey}`;
     if (negotiatedProtocolVersion) {
@@ -182,10 +182,10 @@ export function createBridge({
             output,
             request.id,
             -32603,
-            `PinSharing returned HTTP ${status}`,
+            `MapIron returned HTTP ${status}`,
           );
         } else {
-          safeLog(`PinSharing returned HTTP ${status} for notification`);
+          safeLog(`MapIron returned HTTP ${status} for notification`);
         }
         return;
       }
@@ -200,7 +200,7 @@ export function createBridge({
           output,
           request.id,
           -32603,
-          `Could not reach PinSharing: ${detail}`,
+          `Could not reach MapIron: ${detail}`,
         );
       } else {
         safeLog(

@@ -1,10 +1,10 @@
 {
-  "name": "@pinsharing/mcp",
-  "version": "1.0.0",
-  "description": "A public stdio bridge for the hosted PinSharing MCP server",
+  "name": "@mapiron/mcp",
+  "version": "1.1.0",
+  "description": "A public stdio bridge for the hosted MapIron MCP server",
   "type": "module",
   "bin": {
-    "pinsharing-mcp": "bin/pinsharing-mcp.js"
+    "mapiron-mcp": "bin/mapiron-mcp.js"
   },
   "main": "src/bridge.js",
   "exports": {
@@ -24,13 +24,13 @@
   },
   "license": "MIT",
   "author": "Wells Software Consulting LLC",
-  "homepage": "https://pinsharing.com/docs/mcp",
+  "homepage": "https://mapiron.com/docs/mcp",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Software-Consulting/pinsharing-mcp.git"
+    "url": "git+https://github.com/Software-Consulting/mapiron-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/Software-Consulting/pinsharing-mcp/issues"
+    "url": "https://github.com/Software-Consulting/mapiron-mcp/issues"
   },
   "keywords": [
     "mcp",
@@ -40,7 +40,7 @@
     "static-maps",
     "openstreetmap",
     "privacy",
-    "pinsharing"
+    "mapiron"
   ],
-  "mcpName": "com.pinsharing/maps"
+  "mcpName": "com.mapiron/maps"
 }
