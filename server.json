@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.mapiron/maps",
+  "title": "MapIron Maps",
+  "description": "Geocoding, static maps and privacy-safe area maps from OpenStreetMap data. Hard caps, no overage.",
+  "version": "1.1.0",
+  "repository": {
+    "url": "https://github.com/Software-Consulting/mapiron-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://mapiron.com/docs/mcp",
+  "icons": [
+    { "src": "https://mapiron.com/icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] },
+    { "src": "https://mapiron.com/icon-192.png", "mimeType": "image/png", "sizes": ["192x192"] }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.mapiron.com/v1/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer followed by your MapIron API key (ps_…). Free keys: https://mapiron.com/dashboard",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
